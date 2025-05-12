@@ -1,0 +1,107 @@
+
+.chat-page {
+  background-color: #0e0e0e;
+  color: white;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #00ffd8;
+}
+
+.chat-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.chat-header nav ul li {
+  cursor: pointer;
+}
+
+.chat-header nav ul li.active {
+  color: #00ffd8;
+}
+
+.header-bird {
+  width: 150px;  /* Increase width */
+  border-radius: 8px; /* Optional: round corners */
+ 
+}
+
+.chat-main {
+  flex: 1;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.features-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.arrow {
+  margin-top: 10px;
+}
+
+.chat-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.chat-footer input {
+  width: 60%;
+  padding: 10px;
+  border-radius: 20px 0 0 20px;
+  border: none;
+}
+
+.chat-footer button {
+  padding: 10px 20px;
+  border-radius: 0 20px 20px 0;
+  border: none;
+  background-color: #00ffd8;
+  cursor: pointer;
+}
+.section-title span {
+  color: #00ffd8;
+}
+
+.section-title{
+  font-size: 28px;
+}
+
+.section-heading{
+  font-size: 22px;
+}
