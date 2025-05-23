@@ -1,3 +1,5 @@
+// In chat.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import './ChatPage.css';
@@ -13,17 +15,24 @@ function ChatPage() {
       const response = await axios.post('http://127.0.0.1:8000/generate', {
         prompt: prompt
       });
-
-      setImageURL(response.data.image_url);
+      // response.data will be like { image_url: "/public/image_20250507002235.png" }
+      const imagePath = response.data.image_url;
+      if (imagePath) {
+        // Construct the full URL
+        setImageURL(`http://127.0.0.1:8000${imagePath}`);
+      } else {
+        console.error("image_url not found in response:", response.data);
+        alert('Failed to get image URL from server 😢');
+      }
     } catch (error) {
       console.error(error);
-      alert('Failed to generate image');
+      alert('Failed to generate image 😢');
     }
   };
 
   return (
     <div className="chat-page">
-      <header className="chat-header"> 
+      <header className="chat-header">
         <img src="image8.png" alt="Bird" className="header-bird" />
       </header>
 
@@ -47,12 +56,12 @@ function ChatPage() {
           ))}
         </div>
 
-        {imageURL && (
-          <div style={{ marginTop: "30px", textAlign: "center" }}>
-            <h3>Generated Image:</h3>
-            <img src={imageURL} alt="Generated" style={{ maxWidth: "90%", borderRadius: "10px" }} />
-          </div>
-        )}
+       {imageURL && (
+  <div style={{ marginTop: "30px", textAlign: "center" }}>
+    <h3>Generated Image:</h3>
+    <img src={imageURL} alt="Generated" style={{ maxWidth: "90%", borderRadius: "10px" }} />
+  </div>
+)}
       </main>
 
       <footer className="chat-footer">
